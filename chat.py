@@ -28,7 +28,6 @@ model.eval()
 bot_name = "DammyBot"
 print("Welcome to my maternity chatbot (type 'quit' to exit)")
 while True:
-    # sentence = "do you use credit cards?"
     sentence = input("You: ")
     if sentence == "quit":
         break
