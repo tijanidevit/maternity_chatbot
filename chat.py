@@ -29,7 +29,7 @@ bot_name = "DammyBot"
 print("Welcome to my maternity chatbot (type 'quit' to exit)")
 while True:
     sentence = input("You: ")
-    if sentence == "quit":
+    if sentence == "quit" or sentence == "exit":
         break
 
     sentence = tokenize(sentence)

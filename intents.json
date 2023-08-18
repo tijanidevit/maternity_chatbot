@@ -51,13 +51,15 @@
         "What are some unique baby names?"
       ],
       "responses": [
-        "Sure! Here are a few baby name suggestions: Adekunle, Yusuf, Kemi. Remember, choosing a name is a personal decision!"
+        "Sure! Here are a few baby name suggestions: Adekunle, Yusuf, Kemi. Remember, choosing a name is a personal decision!",
+        "These names are lovely: Adeola, Adebayo, Ayomide, Boluwatife, Folake, Olumide, Damilola", 
+        "Names like Enitan, Ifedayo, Oluwakemi, Oluwatobi, Temitope, Olayinka, Adejoke, Olufemi, Olukayode, Adetokunbo, Oluwafunmilayo, Omobolanle, Babajide"
       ]
     },
     {
       "tag": "nutrition_advice",
       "patterns": [
-        "Food",
+        "Food I can eat",
         "Eat",
         "What foods are best for a healthy pregnancy?",
         "Can you give me pregnancy nutrition tips?",
@@ -142,6 +144,226 @@
       ],
       "responses": [
         "Gentle exercises like prenatal yoga and walking are generally safe during pregnancy. Always consult your doctor before starting a new exercise routine."
+      ]
+    },
+    {
+      "tag": "baby_shower",
+      "patterns": [
+        "How do I plan a baby shower?",
+        "Tell me about baby shower ideas.",
+        "What are some baby shower games?"
+      ],
+      "responses": [
+        "Planning a baby shower involves choosing a theme, creating a guest list, and organizing games and activities. Let's explore some fun ideas together!"
+      ]
+    },
+    {
+      "tag": "maternity_fashion",
+      "patterns": [
+        "Where can I find stylish maternity clothes?",
+        "Tell me about maternity fashion trends.",
+        "What's the best attire for pregnant women?"
+      ],
+      "responses": [
+        "There are many retailers offering trendy maternity clothing. Look for comfortable yet stylish options that suit your personal style."
+      ]
+    },
+    {
+      "tag": "parenting_books",
+      "patterns": [
+        "Can you recommend books about parenting?",
+        "Tell me about popular parenting books.",
+        "What are some parenting guides?"
+      ],
+      "responses": [
+        "Sure! Here are a few popular parenting books: [Book 1], [Book 2], [Book 3]. These books cover various aspects of parenting and child development."
+      ]
+    },
+    {
+      "tag": "babymoon_trip",
+      "patterns": [
+        "Should I go on a babymoon?",
+        "Tell me about babymoon destinations.",
+        "What's a relaxing trip before childbirth?"
+      ],
+      "responses": [
+        "A babymoon can be a wonderful way to relax and bond before your baby arrives. Consider choosing a peaceful destination that allows you to unwind."
+      ]
+    },
+    {
+      "tag": "baby_registry",
+      "patterns": [
+        "How do I create a baby registry?",
+        "Tell me about baby registry tips.",
+        "What should I include in my baby registry?"
+      ],
+      "responses": [
+        "Creating a baby registry involves selecting items you'll need for your baby. Include essentials like diapers, clothing, and nursery items."
+      ]
+    },
+    {
+      "tag": "new_parent_worries",
+      "patterns": [
+        "I'm worried about becoming a parent.",
+        "Tell me about common new parent worries.",
+        "How do I deal with parenting anxiety?"
+      ],
+      "responses": [
+        "It's natural to have worries about parenting. Seek support from other parents, join parenting groups, and remember that every parent learns as they go."
+      ]
+    },
+    {
+      "tag": "maternity_photography",
+      "patterns": [
+        "Should I have a maternity photoshoot?",
+        "Tell me about maternity photography ideas.",
+        "What are some creative pregnancy photo ideas?"
+      ],
+      "responses": [
+        "A maternity photoshoot can capture this special time in your life. Consider outdoor shoots, themed sessions, or simple and intimate moments."
+      ]
+    },
+    {
+      "tag": "postpartum_depression",
+      "patterns": [
+        "How do I recognize postpartum depression?",
+        "Tell me about dealing with baby blues.",
+        "What are the signs of postpartum depression?"
+      ],
+      "responses": [
+        "Postpartum depression is a serious concern. If you experience prolonged feelings of sadness, anxiety, or detachment, it's important to seek professional help."
+      ]
+    },
+    {
+      "tag": "parenting_partnership",
+      "patterns": [
+        "How can my partner and I share parenting responsibilities?",
+        "Tell me about effective parenting partnerships.",
+        "What's the key to successful co-parenting?"
+      ],
+      "responses": [
+        "Open communication, shared responsibilities, and mutual support are essential for successful co-parenting. Working together as a team benefits both you and your child."
+      ]
+    },
+    {
+      "tag": "babyproofing_home",
+      "patterns": [
+        "How should I babyproof my home?",
+        "Tell me about home safety for babies.",
+        "What steps should I take to childproof my house?"
+      ],
+      "responses": [
+        "Babyproofing involves securing hazardous items, covering electrical outlets, and using safety gates. Make sure your home is a safe environment for your little one."
+      ]
+    },
+    {
+      "tag": "vaccination_schedule",
+      "patterns": [
+        "What's the recommended baby vaccination schedule?",
+        "Tell me about infant immunizations.",
+        "When should my baby receive vaccinations?"
+      ],
+      "responses": [
+        "The recommended vaccination schedule may vary by region. Consult your pediatrician to ensure your baby receives vaccinations on time for optimal health."
+      ]
+    },
+    {
+      "tag": "feeding_guidelines",
+      "patterns": [
+        "How often should I feed my baby?",
+        "Tell me about newborn feeding routines.",
+        "What's the right feeding schedule for infants?"
+      ],
+      "responses": [
+        "Newborns typically feed every 2-3 hours. As your baby grows, feeding patterns may change. Watch for hunger cues and consult your doctor."
+      ]
+    },
+    {
+      "tag": "sleep_patterns",
+      "patterns": [
+        "How much should my baby sleep?",
+        "Tell me about baby sleep patterns.",
+        "What's a normal sleep routine for infants?"
+      ],
+      "responses": [
+        "Newborns sleep a lot, usually 14-17 hours a day. Sleep patterns vary, but consistency in bedtime routines can help establish healthy sleep habits."
+      ]
+    },
+    {
+      "tag": "growth_tracking",
+      "patterns": [
+        "How can I track my baby's growth?",
+        "Tell me about monitoring infant growth.",
+        "What's the best way to measure baby's growth?"
+      ],
+      "responses": [
+        "Regular well-baby checkups with a pediatrician help track your baby's growth. Measurements like weight, length, and head circumference are monitored."
+      ]
+    },
+    {
+      "tag": "baby_illness_signs",
+      "patterns": [
+        "What are the signs of illness in a baby?",
+        "Tell me about common infant illness symptoms.",
+        "How can I tell if my baby is sick?"
+      ],
+      "responses": [
+        "Fever, difficulty breathing, persistent crying, and changes in feeding are potential signs of illness in infants. Contact your doctor if you're concerned."
+      ]
+    },
+    {
+      "tag": "baby_teething",
+      "patterns": [
+        "How can I soothe my teething baby?",
+        "Tell me about teething remedies.",
+        "What helps with infant teething pain?"
+      ],
+      "responses": [
+        "Teething can be uncomfortable for babies. Offer teething toys, gently massage their gums, and consult your pediatrician for safe teething remedies."
+      ]
+    },
+    {
+      "tag": "baby_dehydration",
+      "patterns": [
+        "How do I prevent baby dehydration?",
+        "Tell me about signs of infant dehydration.",
+        "What should I do if my baby is dehydrated?"
+      ],
+      "responses": [
+        "Monitor diaper output, offer breast milk or formula frequently, and watch for signs of dehydration like dry mouth and fewer wet diapers."
+      ]
+    },
+    {
+      "tag": "colic_management",
+      "patterns": [
+        "How can I manage my colicky baby?",
+        "Tell me about soothing a colicky infant.",
+        "What helps with baby colic?"
+      ],
+      "responses": [
+        "Colic can be challenging. Try holding your baby, using white noise, and practicing calming techniques. Consult your pediatrician for advice."
+      ]
+    },
+    {
+      "tag": "baby_allergies",
+      "patterns": [
+        "How can I tell if my baby has allergies?",
+        "Tell me about common infant allergy symptoms.",
+        "What should I do if my baby has an allergic reaction?"
+      ],
+      "responses": [
+        "Allergy symptoms in babies can include rash, wheezing, vomiting, and diarrhea. If you suspect an allergy, seek medical attention promptly."
+      ]
+    },
+    {
+      "tag": "baby_dental_care",
+      "patterns": [
+        "When should I start caring for my baby's teeth?",
+        "Tell me about infant dental care.",
+        "How do I clean my baby's gums and teeth?"
+      ],
+      "responses": [
+        "Start cleaning your baby's gums with a soft cloth before teeth appear. Once teeth emerge, use a baby toothbrush and water, and introduce toothpaste later."
       ]
     }
   ]
