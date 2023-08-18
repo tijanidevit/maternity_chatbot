@@ -1,0 +1,148 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello, welcome to DebbyBot",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "pregnancy_progress",
+      "patterns": [
+        "How far along am I?",
+        "What's my current pregnancy week?",
+        "What's the stage of my pregnancy?"
+      ],
+      "responses": [
+        "To determine your pregnancy week, it's best to consult your healthcare provider.",
+        "You can find out your current pregnancy week by checking with your doctor."
+      ]
+    },
+    {
+      "tag": "baby_names",
+      "patterns": [
+        "Can you suggest some baby names?",
+        "I need help with baby names.",
+        "What are some unique baby names?"
+      ],
+      "responses": [
+        "Sure! Here are a few baby name suggestions: Adekunle, Yusuf, Kemi. Remember, choosing a name is a personal decision!"
+      ]
+    },
+    {
+      "tag": "nutrition_advice",
+      "patterns": [
+        "Food",
+        "Eat",
+        "What foods are best for a healthy pregnancy?",
+        "Can you give me pregnancy nutrition tips?",
+        "What should I eat during pregnancy?"
+      ],
+      "responses": [
+        "A balanced diet with plenty of fruits, vegetables, lean protein, and whole grains is important during pregnancy. Consult your doctor for personalized advice."
+      ]
+    },
+    {
+      "tag": "preparing_birth",
+      "patterns": [
+        "How should I prepare for labor and delivery?",
+        "What should I pack in my hospital bag?",
+        "Tell me about childbirth classes."
+      ],
+      "responses": [
+        "Consider taking childbirth classes, pack essentials like clothes and toiletries, and have a birth plan ready for your healthcare team."
+      ]
+    },
+    {
+      "tag": "maternity_leave",
+      "patterns": [
+        "How much maternity leave am I eligible for?",
+        "What's the duration of maternity leave?",
+        "Tell me about maternity leave policies."
+      ],
+      "responses": [
+        "Maternity leave policies vary by location and employer. Check with your HR department or company for specific details."
+      ]
+    },
+    {
+      "tag": "postpartum_recovery",
+      "patterns": [
+        "What can I expect during postpartum recovery?",
+        "Tell me about post-birth healing.",
+        "How long does it take to recover after childbirth?"
+      ],
+      "responses": [
+        "Postpartum recovery varies for each woman. Rest, proper nutrition, and support are essential for a healthy recovery."
+      ]
+    },
+    {
+      "tag": "breastfeeding_support",
+      "patterns": [
+        "Do you have tips for successful breastfeeding?",
+        "How can I make breastfeeding easier?",
+        "Tell me about lactation consultants."
+      ],
+      "responses": [
+        "Breastfeeding can be challenging, but it's worth it. Consider consulting a lactation consultant for guidance and support."
+      ]
+    },
+    {
+      "tag": "baby_development",
+      "patterns": [
+        "What's happening with my baby's development?",
+        "Tell me about fetal development.",
+        "How big is my baby right now?"
+      ],
+      "responses": [
+        "Your baby's development is progressing rapidly. Consult a pregnancy app or website to track fetal development week by week."
+      ]
+    },
+    {
+      "tag": "emotional_wellness",
+      "patterns": [
+        "How can I cope with pregnancy-related emotions?",
+        "Tell me about managing mood swings.",
+        "I'm feeling overwhelmed during pregnancy."
+      ],
+      "responses": [
+        "Pregnancy hormones can lead to mood swings. Practicing self-care, talking to loved ones, and seeking professional support can help."
+      ]
+    },
+    {
+      "tag": "maternity_exercises",
+      "patterns": [
+        "Are there safe exercises for pregnant women?",
+        "Can you suggest maternity workouts?",
+        "Tell me about prenatal yoga."
+      ],
+      "responses": [
+        "Gentle exercises like prenatal yoga and walking are generally safe during pregnancy. Always consult your doctor before starting a new exercise routine."
+      ]
+    }
+  ]
+}
