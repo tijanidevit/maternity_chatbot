@@ -1,54 +1,107 @@
-import spacy
-from nltk.corpus import wordnet
-from spacy.matcher import PhraseMatcher
+from flask import Flask, jsonify, request, redirect, url_for, session
+from flask_session import Session
+import pickle
+import os
+from flask_cors import CORS
+from flask import render_template, request, jsonify
+from routes.users import users
+import services.userService as userService
+import services.dbService as dbService
+import services.spamService as spamService
 
-# Load spaCy language model
-nlp = spacy.load('en_core_web_sm')
 
-print("Hello")
+app = Flask(__name__,static_folder='static')
+app.secret_key = 'super-secret'
+CORS(app)
 
-# Define common phrases and intents
-phrases_to_intents = {
-    "when can I feel the baby's movement": "movement",
-    "how do I manage morning sickness": "morning_sickness",
-    "what foods should I avoid during pregnancy": "diet",
-    # Add more phrases and intents
-}
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
 
-# Create a PhraseMatcher
-phrase_matcher = PhraseMatcher(nlp.vocab)
-for phrase in phrases_to_intents.keys():
-    phrase_matcher.add(phrase, None, nlp(phrase))
+if not os.path.isfile('emailspam.db'):
+    dbService.connect()
 
-def get_intent(doc):
-    matches = phrase_matcher(doc)
-    if matches:
-        match_id, start, end = matches[0]
-        intent = phrases_to_intents[nlp.vocab.strings[match_id]]
-        return intent
-    return None
+@app.get('/')
+def index():
+    return render_template('index.html')
 
-def generate_response(intent):
-    if intent == "movement":
-        return "You might start feeling the baby's movement around 18-25 weeks."
-    elif intent == "morning_sickness":
-        return "Managing morning sickness can involve eating small, frequent meals and staying hydrated."
-    elif intent == "diet":
-        return "It's recommended to avoid raw or undercooked seafood, unpasteurized dairy, and certain deli meats during pregnancy."
-    # Add more intent-specific responses
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'GET':
+        form_data = None
+        return render_template('register.html', form_data=form_data)
     else:
-        return "I'm sorry, I'm not sure how to help with that."
+        form_data = request.form
+        if userService.isEmailExists(form_data['email']):
+            error_message = 'User with this email already exists.'
+            return render_template('register.html', error_message=error_message, form_data=form_data)
+        
+        user = userService.insert({
+            'name': form_data['name'],
+            'email': form_data['email'],
+            'password': form_data['password']
+        })
+        session['user'] = user
 
-print("Maternity Chatbot: Hello! How can I assist you today?")
-while True:
-    user_input = input("You: ")
-    if user_input.lower() == 'exit':
-        print("Maternity Chatbot: Goodbye!")
-        break
-    doc = nlp(user_input)
-    intent = get_intent(doc)
-    if intent:
-        response = generate_response(intent)
+        return redirect(url_for('check'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        form_data = None
+        return render_template('login.html', form_data=form_data)
     else:
-        response = "I'm not sure what you're asking about."
-    print("Maternity Chatbot:", response)
+        form_data = request.form
+        user = userService.getUser(form_data['email'])
+
+        if user is None:
+            error_message = 'User with this email not found.'
+            return render_template('login.html', error_message=error_message, form_data=form_data)
+        
+        if str(user[3]) != str(form_data['password']):
+            error_message = 'Invalid Password.'
+            return render_template('login.html', error_message=error_message, form_data=form_data)
+        
+        
+        session['user'] = user
+
+        return redirect(url_for('check'))
+
+
+
+@app.route('/check', methods=['GET', 'POST'])
+def check():
+    if not session.get('user'):
+        return redirect(url_for('login'))
+    
+    if request.method == 'GET':
+        form_data = None
+        return render_template('check.html', form_data=form_data)
+    else:
+        form_data = request.form
+        text = form_data["text"]
+        m2 = pickle.load(open('m2.pkl','rb'))
+        cv = pickle.load(open('cv.pkl','rb'))
+        
+        data = cv.transform([text]).toarray()
+        isSpam = False
+
+        result = m2.predict(data)
+        if result == "spam":
+            isSpam = True
+            if spamService.isMessageExists:
+                spamService.insert({
+                    'message' : text
+                })
+
+        return render_template('check.html', isSpam=isSpam, form_data=form_data)
+
+@app.get('/history')
+def history():
+    spams = spamService.getAll()
+    return render_template('history.html', spams = spams)
+
+app.register_blueprint(users, url_prefix='/users')
+
+if __name__ == '__main__':
+    app.run( port=105, debug=True)

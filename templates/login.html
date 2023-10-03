@@ -1,0 +1,64 @@
+{% extends "layout/app.html" %}
+{% block banner %}
+<div class="home-banner-section overflow-hidden position-relative sub-banner-section">
+    <div class="banner-container-box">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                   <div class="sub-banner-outer">
+                    <h1>Login now</h1>
+                    <p>Login now to start protecting your files</p>
+                       <div class="banner-btn discover-btn-banner">
+                           <div class="btn-inner">Home <span class="arrow-angles"><i class="fa fa-angles-right"></i></span><span class="about-margin">Login</span></div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+ <!-- Form-Section -->
+ <section class="contact-us-form">
+     <figure class="about-left-back-img">
+         <img src="assets/images/contact-before-img.png" alt="" class="star">
+     </figure>
+     <div class="container text-center">
+        <div class="row">
+         <div class="col-12">
+             <h6 class="autorix-text text-center">Continue protecting your resources</h6>
+             <h2 class="text-center aos-init aos-animate" data-aos="fade-left">Login Here</h2>
+         </div>
+        </div>
+         <form id="form_id" method="post" action="/login">
+             <div class="contact-us-wrapper">
+                {% if error_message %}
+                    <p style="color: red;">{{ error_message }}</p>
+                {% endif %}
+                 <div class="row">
+
+                     <div class="mb-3  col-sm-12">
+                         <div class="">
+                             <input required value="{{ form_data['email'] }}" type="email" name="email" class="form-control input-fill" placeholder="Email">
+                         </div>
+                     </div>
+                     
+                     <div class="mb-3  col-sm-12">
+                        <div class="">
+                            <input required type="password" name="password" class="form-control input-fill" placeholder="Password">
+                        </div>
+                    </div>
+
+                 </div>
+                 <div class="form-btn">
+                     <button type="submit" class="btn btn-primary">Login</button>
+                 </div>
+             </div>
+         </form>
+     </div>
+ </section>
+    
+{% endblock %}

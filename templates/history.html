@@ -1,0 +1,62 @@
+{% extends "layout/app.html" %}
+{% block banner %}
+<div class="home-banner-section overflow-hidden position-relative sub-banner-section">
+    <div class="banner-container-box">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                   <div class="sub-banner-outer">
+                    <h1>Spam messages history</h1>
+                    <p>See previous spam detected messages</p>
+                       <div class="banner-btn discover-btn-banner">
+                           <div class="btn-inner">Home <span class="arrow-angles"><i class="fa fa-angles-right"></i></span><span class="about-margin">Spam</span></div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+ <!-- Form-Section -->
+ <section class="contact-us-form">
+     <figure class="about-left-back-img">
+         <img src="assets/images/contact-before-img.png" alt="" class="star">
+     </figure>
+     <div class="container text-center">
+        <div class="row">
+         <div class="col-12">
+             <h6 class="autorix-text text-center">Previously detected spam messages</h6>
+             <!-- <h2 class="text-center aos-init aos-animate" data-aos="fade-left">Spam Here</h2> -->
+         </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for spam in spams %}
+                                <tr>
+                                    <td>{{ spam.message }}</td>
+                                    <td>{{ spam.timestamp }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+     </div>
+ </section>
+    
+{% endblock %}

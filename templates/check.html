@@ -1,0 +1,59 @@
+{% extends "layout/app.html" %}
+{% block banner %}
+<div class="home-banner-section overflow-hidden position-relative sub-banner-section">
+    <div class="banner-container-box">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                   <div class="sub-banner-outer">
+                    <h1>Verify message</h1>
+                    <p>Verify now to start protecting your files</p>
+                       <div class="banner-btn discover-btn-banner">
+                           <div class="btn-inner">Home <span class="arrow-angles"><i class="fa fa-angles-right"></i></span><span class="about-margin">Verify</span></div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+ <!-- Form-Section -->
+ <section class="contact-us-form">
+     <figure class="about-left-back-img">
+         <img src="assets/images/contact-before-img.png" alt="" class="star">
+     </figure>
+     <div class="container text-center">
+        <div class="row">
+         <div class="col-12">
+             <h6 class="autorix-text text-center">Paste the message you want to verify here</h6>
+             <h2 class="text-center aos-init aos-animate" data-aos="fade-left">Verify Here</h2>
+         </div>
+        </div>
+         <form id="form_id" method="post" action="/check">
+             <div class="contact-us-wrapper">
+                {% if isSpam %}
+                    <p style="color: red;">Message is a spam message</p>
+                {% else %}
+                    <p style="color: green;">Message is not a spam message</p>
+                {% endif %}
+                 <div class="row">
+                     <div class="mb-3  col-sm-12">
+                        <div class="">
+                            <textarea required name="text" class="form-control input-fill" rows="5" placeholder="Message here">{{form_data['text']}}</textarea>
+                        </div>
+                    </div>
+
+                 </div>
+                 <div class="form-btn">
+                     <button type="submit" class="btn btn-primary">Verify</button>
+                 </div>
+             </div>
+         </form>
+     </div>
+ </section>
+    
+{% endblock %}
