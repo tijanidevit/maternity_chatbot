@@ -7,7 +7,6 @@ from flask import render_template, request, jsonify
 from routes.users import users
 import services.userService as userService
 import services.dbService as dbService
-import services.spamService as spamService
 
 
 app = Flask(__name__,static_folder='static')
@@ -17,12 +16,13 @@ CORS(app)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
-if not os.path.isfile('emailspam.db'):
+if not os.path.isfile('maternity.db'):
     dbService.connect()
 
 @app.get('/')
 def index():
-    return render_template('index.html')
+    form_data = None
+    return render_template('index.html', form_data=form_data)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -67,39 +67,6 @@ def login():
 
         return redirect(url_for('check'))
 
-
-
-@app.route('/check', methods=['GET', 'POST'])
-def check():
-    if not session.get('user'):
-        return redirect(url_for('login'))
-    
-    if request.method == 'GET':
-        form_data = None
-        return render_template('check.html', form_data=form_data)
-    else:
-        form_data = request.form
-        text = form_data["text"]
-        m2 = pickle.load(open('m2.pkl','rb'))
-        cv = pickle.load(open('cv.pkl','rb'))
-        
-        data = cv.transform([text]).toarray()
-        isSpam = False
-
-        result = m2.predict(data)
-        if result == "spam":
-            isSpam = True
-            if spamService.isMessageExists:
-                spamService.insert({
-                    'message' : text
-                })
-
-        return render_template('check.html', isSpam=isSpam, form_data=form_data)
-
-@app.get('/history')
-def history():
-    spams = spamService.getAll()
-    return render_template('history.html', spams = spams)
 
 app.register_blueprint(users, url_prefix='/users')
 

@@ -413,7 +413,58 @@
     <div class="row">
       <div class="col-md-6 col-12">
         <div class="section-heading text-left mb-50">
-          <h1 class="heading">Fix an Appointment</h1>
+          <h1 class="heading">Register</h1>
+        </div>
+
+        {% if error_message %}
+        <p style="color: red">{{ error_message }}</p>
+        {% endif %}
+
+        <form
+          class="mt-30"
+          action="#"
+          id="contact"
+          name="contact"
+          method="post"
+          action="/register"
+        >
+          <div class="contact-form app-form form-border clearfix">
+            <div class="form-field">
+              <input
+                type="text"
+                class="form-control"
+                value="{{ form_data['name'] }}"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-field">
+              <input
+                class="form-control"
+                required
+                value="{{ form_data['email'] }}"
+                type="email"
+                name="email"
+                placeholder="Your Email"
+              />
+            </div>
+            <div class="form-field">
+              <input
+                class="form-control"
+                type="password"
+                name="password"
+                placeholder="*********"
+                required
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-6 col-12">
+        <div class="section-heading text-left mb-50">
+          <h1 class="heading">Login</h1>
         </div>
 
         <form

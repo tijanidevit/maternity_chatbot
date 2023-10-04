@@ -17,9 +17,6 @@
               <li>
                 <a href="#"><span class="ti-linkedin"></span></a>
               </li>
-              <li>
-                <a href="#"><span class="ti-dribbble"></span></a>
-              </li>
             </ul>
           </div>
         </div>
@@ -31,7 +28,9 @@
               <li><i class="fa fa-envelope"></i>info@pregnancycare.com</li>
               <li>
                 <i class="fa fa-phone"></i>
-                <a href="tel:+1234567890"> <span>+(123) 456-7890 </span> </a>
+                <a href="tel:+2349073443949">
+                  <span>+(234) 907-344-3949 </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -43,7 +42,11 @@
   <nav hidden class="nav-white header-fancy">
     <div class="nav-header">
       <a href="index-2.html" class="brand">
-        <img src="images/brand/logo.png" class="img-fluid" alt="" />
+        <img
+          src="{{url_for('static',filename='images/brand/logo.png')}}"
+          class="img-fluid"
+          alt=""
+        />
       </a>
       <button class="toggle-bar">
         <span class="ti-menu"></span>
@@ -52,22 +55,8 @@
     <ul class="menu">
       <li class="scrollspy active"><a href="#home">Home</a></li>
       <li class="scrollspy"><a href="#services">Services</a></li>
-      <li class="scrollspy"><a href="#appointment">Appointment</a></li>
-      <li class="scrollspy"><a href="#testimonials">Testimonials</a></li>
-      <li class="scrollspy"><a href="#doctor">Doctor</a></li>
-      <li class="scrollspy"><a href="#blog">News</a></li>
-      <li class="scrollspy"><a href="#contactus">Contact</a></li>
+      <li class="scrollspy"><a href="#appointment">Register</a></li>
+      <li class="scrollspy"><a href="#appointment">Login</a></li>
     </ul>
-    <ul class="attributes">
-      <li>
-        <a href="#" class="toggle-search-fullscreen"
-          ><span class="ti-search"></span
-        ></a>
-      </li>
-    </ul>
-    <div class="wrap-search-fullscreen">
-      <button class="close-search"><span class="ti-close"></span></button>
-      <input type="text" placeholder="Search..." />
-    </div>
   </nav>
 </header>
