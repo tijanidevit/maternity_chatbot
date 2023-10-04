@@ -6,7 +6,7 @@ def getNewId():
     return random.getrandbits(28)
 
 def insert(user):
-    conn = sqlite3.connect('emailspam.db')
+    conn = sqlite3.connect('maternity.db')
     cur = conn.cursor()
     cur.execute("INSERT INTO users VALUES (?,?,?,?,?)", (
         getNewId(),
@@ -20,7 +20,7 @@ def insert(user):
     return getUser(user['email'])
 
 def view():
-    conn = sqlite3.connect('emailspam.db')
+    conn = sqlite3.connect('maternity.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM users")
     rows = cur.fetchall()
@@ -35,7 +35,7 @@ def isEmailExists(email):
     return getUser(email) is not None
 
 def getUser(value):
-    conn = sqlite3.connect('emailspam.db')
+    conn = sqlite3.connect('maternity.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM users WHERE email=? OR id=?", (value, value))
     user = cur.fetchone()
@@ -43,21 +43,21 @@ def getUser(value):
     return user
 
 def update(user):
-    conn = sqlite3.connect('emailspam.db')
+    conn = sqlite3.connect('maternity.db')
     cur = conn.cursor()
     cur.execute("UPDATE users SET name=?, email=? WHERE id=?", (user.name, user.email, user.id))
     conn.commit()
     conn.close()
 
 def delete(theId):
-    conn = sqlite3.connect('emailspam.db')
+    conn = sqlite3.connect('maternity.db')
     cur = conn.cursor()
     cur.execute("DELETE FROM users WHERE id=?", (theId,))
     conn.commit()
     conn.close()
 
 def deleteAll():
-    conn = sqlite3.connect('emailspam.db')
+    conn = sqlite3.connect('maternity.db')
     cur = conn.cursor()
     cur.execute("DELETE FROM users")
     conn.commit()

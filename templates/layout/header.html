@@ -41,7 +41,7 @@
 
   <nav hidden class="nav-white header-fancy">
     <div class="nav-header">
-      <a href="index-2.html" class="brand">
+      <a href="/" class="brand">
         <img
           src="{{url_for('static',filename='images/brand/logo.png')}}"
           class="img-fluid"
@@ -55,8 +55,16 @@
     <ul class="menu">
       <li class="scrollspy active"><a href="#home">Home</a></li>
       <li class="scrollspy"><a href="#services">Services</a></li>
+      {% if session.user %}
+
+      <li class="scrollspy"><a href="chat">Chat</a></li>
+      <li class="scrollspy"><a href="logout">Logout</a></li>
+      {% else %}
+
       <li class="scrollspy"><a href="#appointment">Register</a></li>
       <li class="scrollspy"><a href="#appointment">Login</a></li>
+
+      {% endif %}
     </ul>
   </nav>
 </header>

@@ -1,0 +1,85 @@
+{% extends "layout/app.html" %} {% block content %}
+<!-- Form-Section -->
+
+<section id="home">
+  <article class="content">
+    <section class="gradient-custom">
+      <div class="container py-5">
+        <div class="py-5">.</div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-5 col-xl-5 mb-4 mb-md-0">
+            <h5 class="font-weight-bold mb-3 text-center text-white">
+              Chat with our AI
+            </h5>
+
+            <div class="card mask-custom">
+              <div class="card-body">
+                <h4>How it works</h4>
+
+                <ol class="list-unstyled mb-0">
+                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">Send a message</li>
+                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">The AI tool takes the message and breaks it down</li>
+                  
+                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">Message is proccessed and transformed to a more meaningful form</li>
+
+                  
+                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">The AI tool generates a response and sends to the users</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-7 col-xl-7">
+            <ul class="list-unstyled text-white">
+              <div id='messageArea'>
+                <li class="d-flex justify-content-between mb-4">
+                  <div class="card mask-custom w-100">
+                    <div class="card-header d-flex justify-content-between p-3"
+                      style="border-bottom: 1px solid rgba(255,255,255,.3);">
+                      <p class="fw-bold mb-0 text-white">Debby Bot</p>
+                    </div>
+                    <div class="card-body">
+                      <p class="mb-0 text-white">
+                        Hello there. Please ask me a question
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </div>
+              <form id='messageForm'>
+                <li class="text-center" style="display:none" id="loading">
+                  <img src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47m8ekulqv2juxtcxoghn8czrqljeu8dqhb45jfroh&ep=v1_gifs_search&rid=giphy.gif&ct=g" style="width: 4em;"/>
+                </li>
+                <li class="mb-3">
+                  <div class="form-outline form-white">
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      rows="4"
+                      autofocus
+                      name="message"
+                    ></textarea>
+                    <label class="form-label" for="textAreaExample3"
+                      >Message</label
+                    >
+                  </div>
+                  
+                </li>
+                <button
+                  type="submit"
+                  class="btn btn-light btn-lg btn-rounded float-end"
+                >
+                  Send
+                  
+                </button>
+              </form>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</section>
+
+{% endblock %}

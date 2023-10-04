@@ -1,12 +1,12 @@
 from flask import Flask, jsonify, request, redirect, url_for, session
 from flask_session import Session
-import pickle
 import os
 from flask_cors import CORS
 from flask import render_template, request, jsonify
 from routes.users import users
 import services.userService as userService
 import services.dbService as dbService
+from chat import getResponse
 
 
 app = Flask(__name__,static_folder='static')
@@ -43,7 +43,7 @@ def register():
         })
         session['user'] = user
 
-        return redirect(url_for('check'))
+        return redirect(url_for('chat'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -65,7 +65,17 @@ def login():
         
         session['user'] = user
 
-        return redirect(url_for('check'))
+        return redirect(url_for('chat'))
+
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+    if request.method == 'GET':
+        return render_template('chat.html')
+    else:
+        message = request.form['message']
+        return getResponse(message)
+        
 
 
 app.register_blueprint(users, url_prefix='/users')
