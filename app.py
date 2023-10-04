@@ -29,12 +29,12 @@ def index():
 def register():
     if request.method == 'GET':
         form_data = None
-        return render_template('register.html', form_data=form_data)
+        return render_template('index.html', form_data=form_data)
     else:
         form_data = request.form
         if userService.isEmailExists(form_data['email']):
             error_message = 'User with this email already exists.'
-            return render_template('register.html', error_message=error_message, form_data=form_data)
+            return render_template('index.html', error_message=error_message, form_data=form_data)
         
         user = userService.insert({
             'name': form_data['name'],
@@ -56,11 +56,11 @@ def login():
 
         if user is None:
             error_message = 'User with this email not found.'
-            return render_template('login.html', error_message=error_message, form_data=form_data)
+            return render_template('index.html', error_message=error_message, form_data=form_data)
         
         if str(user[3]) != str(form_data['password']):
             error_message = 'Invalid Password.'
-            return render_template('login.html', error_message=error_message, form_data=form_data)
+            return render_template('index.html', error_message=error_message, form_data=form_data)
         
         
         session['user'] = user

@@ -466,6 +466,50 @@
           </div>
         </form>
       </div>
+
+      <div class="col-md-6 col-12">
+        <div class="section-heading text-left mb-50">
+          <h1 class="heading">Login</h1>
+        </div>
+
+        {% if error_message %}
+        <p style="color: red">{{ error_message }}</p>
+        {% endif %}
+
+        <form
+          class="mt-30"
+          id="login"
+          name="contact"
+          method="post"
+          action="/login"
+        >
+          <div class="contact-form app-form form-border clearfix">
+            <div class="form-field">
+              <input
+                class="form-control"
+                required
+                value="{{ form_data['email'] }}"
+                type="email"
+                name="email"
+                placeholder="Your Email"
+              />
+            </div>
+            <div class="form-field">
+              <input
+                class="form-control"
+                type="password"
+                name="password"
+                placeholder="*********"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-field w-100">
+            <button name="submit" type="submit" class="cs-button">Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
