@@ -25,6 +25,11 @@ def index():
     return render_template('index.html', form_data=form_data)
 
 
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    session['user'] = None
+    return redirect(url_for('/'))
+    
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'GET':
@@ -70,6 +75,8 @@ def login():
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
+    if not session['user']:
+        return redirect(url_for('/'))
     if request.method == 'GET':
         return render_template('chat.html')
     else:
