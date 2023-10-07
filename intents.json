@@ -52,7 +52,7 @@
       ],
       "responses": [
         "Sure! Here are a few baby name suggestions: Adekunle, Yusuf, Kemi. Remember, choosing a name is a personal decision!",
-        "These names are lovely: Adeola, Adebayo, Ayomide, Boluwatife, Folake, Olumide, Damilola", 
+        "These names are lovely: Adeola, Adebayo, Ayomide, Boluwatife, Folake, Olumide, Damilola",
         "Names like Enitan, Ifedayo, Oluwakemi, Oluwatobi, Temitope, Olayinka, Adejoke, Olufemi, Olukayode, Adetokunbo, Oluwafunmilayo, Omobolanle, Babajide"
       ]
     },
@@ -272,7 +272,9 @@
       "patterns": [
         "How often should I feed my baby?",
         "Tell me about newborn feeding routines.",
-        "What's the right feeding schedule for infants?"
+        "What's the right feeding schedule for infants?",
+        "What can I feed my baby?",
+        "How do I breastfeed my baby?"
       ],
       "responses": [
         "Newborns typically feed every 2-3 hours. As your baby grows, feeding patterns may change. Watch for hunger cues and consult your doctor."
@@ -364,6 +366,25 @@
       ],
       "responses": [
         "Start cleaning your baby's gums with a soft cloth before teeth appear. Once teeth emerge, use a baby toothbrush and water, and introduce toothpaste later."
+      ]
+    },
+    {
+      "tag": "baby_weight",
+      "patterns": [
+        "What is my baby weight?",
+        "How do I know my baby weight.",
+        "What is the normal weight of an unborn baby?",
+        "How many Kg should my baby weight?"
+      ],
+      "responses": [
+        "How much your little one weighs is determined by your genetics and, importantly, your health and nutrition during your pregnancy. As a general guide, you should weigh your baby: Once a month, up to six months of age: Once every two months from 6-12 months of age and Once every three months over the age of one"
+      ]
+    },
+    {
+      "tag": "baby_breath",
+      "patterns": ["is it normal to be short of breath?", "how do i breath?"],
+      "responses": [
+        "Yes, it's perfectly normal. You may find you can go up a flight of stairs with very little effort, but you are short of breath. Shortness of breath can start early in pregnancy—it has to do with how pregnancy hormones affect the lungs. But if you have shortness of breath along with chest pain, a cough, or heart palpitations, if you’re feeling faint, or if there’s a major change in your breathing, then you need to contact your ob-gyn."
       ]
     }
   ]

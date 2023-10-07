@@ -28,7 +28,7 @@ model.eval()
 bot_name = "DebbyBot"
 print("Welcome to my maternity chatbot (type 'quit' to exit)")
 def getResponse(sentence):
-
+    query = sentence + " for maternity"
     sentence = tokenize(sentence)
     X = bag_of_words(sentence, all_words)
     X = X.reshape(1, X.shape[0])
@@ -46,7 +46,21 @@ def getResponse(sentence):
             if tag == intent["tag"]:
                 return(f"{random.choice(intent['responses'])}")
     else:
-        return("I do not understand...")
+        from googlesearch import search
+        resp = search(query, advanced=True, num_results=5)
+        htmlResponse = "<p class=''>I do not understand. But these resources will be of help</p><ul>"
+        
+        for i, result in enumerate(resp, start=1):
+            htmlResponse += """
+                             <li class='card'>
+                                <div class='card-body my-2'>
+                                    <p>{}</p>
+                                    <a target='_blank' href={}>{}</p>
+                                </div>
+                            </li>
+                             """.format(result.description, result.url, result.title)
+        htmlResponse += "</ul>"
+        return(htmlResponse)
         
         
         

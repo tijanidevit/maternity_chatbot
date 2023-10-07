@@ -86,8 +86,18 @@
 <script src="{{ url_for('static',filename='js/jarallax.js')}}"></script>
 
 <script>
+  $("#message").keydown(function (e) {
+    if (e.ctrlKey && e.keyCode == 13) {
+      getResponse();
+    }
+  });
+
   $("#messageForm").submit(function (e) {
     e.preventDefault();
+    getResponse();
+  });
+
+  const getResponse = () => {
     let message = $("#message").val();
     if (!message) {
       alert("Please enter a message");
@@ -107,12 +117,12 @@
               class="card-header d-flex justify-content-between p-3"
               style="border-bottom: 1px solid rgba(255, 255, 255, 0.3)"
             >
-              <p class="fw-bold mb-0 text-white">You</p>
+              <p class="fw-bold mb-0 ">You</p>
               <p class="text-light small mb-0">
               </p>
             </div>
             <div class="card-body">
-              <p class="mb-0 text-white">
+              <p class="mb-0 ">
                 ${message}
               </p>
             </div>
@@ -120,6 +130,8 @@
         </li>
     `);
 
+    $("#spin").show();
+    $("#chatBtn").prop("disabled", true);
     $.ajax({
       url: `http://127.0.0.1:105/chat`,
       type: "post",
@@ -133,10 +145,10 @@
                 <div class="card mask-custom w-100">
                 <div class="card-header d-flex justify-content-between p-3"
                     style="border-bottom: 1px solid rgba(255,255,255,.3);">
-                    <p class="fw-bold mb-0 text-white">Debby Bot</p>
+                    <p class="fw-bold mb-0 ">Debby Bot</p>
                 </div>
                 <div class="card-body">
-                    <p class="mb-0 text-white">
+                    <p class="mb-0 ">
                         ${response}
                     </p>
                 </div>
@@ -148,7 +160,12 @@
       },
       error: function (err) {
         console.log("err", err);
+        alert("Unexpected error. Please try again");
+      },
+      complete: function () {
+        $("#spin").hide();
+        $("#chatBtn").prop("disabled", false);
       },
     });
-  });
+  };
 </script>

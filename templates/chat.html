@@ -9,8 +9,8 @@
 
         <div class="row">
           <div class="col-md-6 col-lg-5 col-xl-5 mb-4 mb-md-0">
-            <h5 class="font-weight-bold mb-3 text-center text-white">
-              Chat with our AI
+            <h5 class="font-weight-bold mb-3 text-center">
+              Chat with our ChatBot
             </h5>
 
             <div class="card mask-custom">
@@ -18,35 +18,42 @@
                 <h4>How it works</h4>
 
                 <ol class="list-unstyled mb-0">
-                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">Send a message</li>
-                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">The AI tool takes the message and breaks it down</li>
+                  <li class="p-2 border-bottom" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">Send a message</li>
+                  <li class="p-2 border-bottom" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">The AI tool takes the message and breaks it down</li>
                   
-                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">Message is proccessed and transformed to a more meaningful form</li>
+                  <li class="p-2 border-bottom" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">Message is proccessed and transformed to a more meaningful form</li>
 
                   
-                  <li class="p-2 border-bottom text-white" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">The AI tool generates a response and sends to the users</li>
+                  <li class="p-2 border-bottom" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;">The AI tool generates a response and sends to the users</li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-7 col-xl-7">
-            <ul class="list-unstyled text-white">
+          <div class="col-md-6 col-lg-7 col-xl-7" style="height: 40em; overflow-y: auto">
+            <ul class="list-unstyled">
               <div id='messageArea'>
                 <li class="d-flex justify-content-between mb-4">
                   <div class="card mask-custom w-100">
                     <div class="card-header d-flex justify-content-between p-3"
                       style="border-bottom: 1px solid rgba(255,255,255,.3);">
-                      <p class="fw-bold mb-0 text-white">Debby Bot</p>
+                      <p class="fw-bold mb-0">Debby Bot</p>
                     </div>
                     <div class="card-body">
-                      <p class="mb-0 text-white">
+                      <p class="mb-0">
                         Hello there. Please ask me a question
                       </p>
                     </div>
                   </div>
                 </li>
+
               </div>
+
+              <li id="spin" style="display: none">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </li>
               <form id='messageForm'>
                 <li class="text-center" style="display:none" id="loading">
                   <img src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47m8ekulqv2juxtcxoghn8czrqljeu8dqhb45jfroh&ep=v1_gifs_search&rid=giphy.gif&ct=g" style="width: 4em;"/>
@@ -68,6 +75,7 @@
                 </li>
                 <button
                   type="submit"
+                  id="chatBtn"
                   class="btn btn-light btn-lg btn-rounded float-end"
                 >
                   Send
