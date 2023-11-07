@@ -87,5 +87,5 @@ def chat():
 
 app.register_blueprint(users, url_prefix='/users')
 
-if __name__ == '__main__':
-    app.run( port=105, debug=True)
+# if __name__ == '__main__':
+#     app.run( port=105, debug=True)
